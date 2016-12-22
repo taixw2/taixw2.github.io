@@ -21,3 +21,4 @@ Access-Control-Allow-Origin: *  #被允许的请求源，这里表示允许所�
 - 使用自定义请求头
 
 ### 服务器与浏览器请求流程
+![](../img/cors.png)
