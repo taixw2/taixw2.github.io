@@ -22,7 +22,7 @@
 在`httpd-vhost.conf`(根据自己的vhost的配置文件而定)中加入如下：
 ```bash
 <VirtualHost *:80>    
-#访问下面的域名转发node接口
+#对下面的域名进行操作
   ServerName node.js
 
   ProxyRequests off
@@ -32,7 +32,7 @@
     Allow from all
   </Proxy>
 
-# 转发/node下的所有请求到http://localhost:8080/
+# 转发域名下/node的所有请求到http://localhost:8080/
   <Location /node>
     ProxyPass http://localhost:8080/
     ProxyPassReverse http://localhost:8080/
@@ -45,10 +45,14 @@
 现在访问 http://node.js/node/ 则会转发到 http://localhost:8080/ 上。
 
 ### 如何测试？
-肯定不会在服务器上做上面的一些炒作，因为一步弄错，可能apache就会重启失败。
-所以必须确保万无一失之后才把转发部到线上。
+  肯定不会直接在服务器上做上面的一些操作，
 
-*已window下的环境为例*
+  因为一步弄错，可能apache就会重启失败。
+
+  所以必须确保万无一失之后才把转发部到线上。
+
+**已window下的环境为例**
+
 1. 下载wamp/xampp或者自行搭建apache环境
 2. 安装各个模块
 3. 修改host，使访问某个域名能够访问自己本地的apache
