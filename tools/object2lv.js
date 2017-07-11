@@ -5,7 +5,7 @@
  * @param {array} lv 
  * @param {array} kv 
  */
-export default (object, lv, kv) => {
+export default (object, lv, kv = []) => {
   const label = kv[0] || 'label'
   const value = kv[1] || 'value'
   const len = lv.length
@@ -17,7 +17,7 @@ export default (object, lv, kv) => {
     const cur = lv[i]
     newArray.push({
       [label]: cur[0],
-      [value]: cur[1],
+      [value]: object[cur[1]],
     })
   }
 
